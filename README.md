@@ -3,6 +3,10 @@ Simple application for testing actix with elasticsearch
 
 I made this web application for preliminary survey of actix-web and elasticsearch with japanese full-text search.
 
+For more information, check below link:
+
+https://kikei.github.io/rust/2020/05/13/actixweb-elasticsearch.html
+
 ## How to
 
 You can launch app by just running docker-compose.
