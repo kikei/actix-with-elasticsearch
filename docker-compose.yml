@@ -1,0 +1,26 @@
+version: "3.7"
+services:
+  webapp:
+    build:
+      context: .
+      dockerfile: docker/webapp/Dockerfile
+    #volumes:
+    #  - ./webapp:/usr/src/app
+    ports:
+      - "8080:8080"
+    #entrypoint: /bin/bash
+    #command: "-i"
+    entrypoint: /usr/local/cargo/bin/cargo
+    command: "run app"
+    tty: true
+  elasticsearch:
+    build: docker/elasticsearch
+    expose:
+      - 9200
+    environment:
+      discovery.type: single-node
+      ES_JAVA_OPTS: "-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
